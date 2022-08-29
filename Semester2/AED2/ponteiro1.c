@@ -23,5 +23,5 @@ na saída-padrão, seu valor por meio da expressão *ap_x. Tal expressão serve 
 seja acessado o conteúdo da variável o qual o ponteiro ap_x aponta.
 
 Na linha 11 isso é novamente usado no intuito de mudar o valor de x para 200, que é
-mostrado na saída padrão em sequência.
+mostrado na saída padrão em sequência pela mesma estrutura.
 */
