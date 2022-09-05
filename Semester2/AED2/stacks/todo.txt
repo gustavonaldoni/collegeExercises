@@ -5,9 +5,14 @@ STRUCTS:
 
 FUNCTIONS:
 
+Basics:
 - StackCreate(); OK
 - StackIsEmpty(); OK
 - StackPush(); OK
 - StackTop();
 - StackPop();
 - StackShow();
+
+Complementary:
+- StackCountElements(); OK
+- StackSizeOf();

@@ -14,6 +14,9 @@ bool StackIsEmpty(Stack);
 bool StackPush(Stack *, int);
 void StackShow(Stack);
 
+int StackCountElements(Stack);
+int StackSizeOf(Stack);
+
 void StackCreate(Stack *stack)
 {
     stack->top = NULL;
@@ -42,7 +45,7 @@ bool StackPush(Stack *stack, int data)
 
 void StackShow(Stack stack)
 {
-    struct Node* aux;
+    struct Node *aux;
     aux = stack.top;
 
     if (StackIsEmpty(stack))
@@ -58,4 +61,40 @@ void StackShow(Stack stack)
             aux = aux->next;
         }
     }
+}
+
+int StackCountElements(Stack stack)
+{
+    int counter;
+    struct Node *aux;
+
+    counter = 0;
+    aux = stack.top;
+
+    if (StackIsEmpty(stack))
+    {
+        return -1;
+    }
+
+    else
+    {
+        while (aux != NULL)
+        {
+            counter += 1;
+            aux = aux->next;
+        }
+    }
+
+    return counter;
+}
+
+int StackSizeOf(Stack stack)
+{
+    int numberOfElements;
+    struct Node aux;
+
+    numberOfElements = StackCountElements(stack);
+    
+    return sizeof(stack) + sizeof(aux) * numberOfElements;
+    
 }
