@@ -1,0 +1,13 @@
+STRUCTS:
+
+- Node OK
+- Stack OK
+
+FUNCTIONS:
+
+- StackCreate(); OK
+- StackIsEmpty(); OK
+- StackPush(); OK
+- StackTop();
+- StackPop();
+- StackShow();
