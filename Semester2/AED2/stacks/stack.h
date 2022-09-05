@@ -94,7 +94,6 @@ int StackSizeOf(Stack stack)
     struct Node aux;
 
     numberOfElements = StackCountElements(stack);
-    
+
     return sizeof(stack) + sizeof(aux) * numberOfElements;
-    
 }

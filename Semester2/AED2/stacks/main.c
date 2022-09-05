@@ -28,7 +28,7 @@ main()
     } 
 
     StackShow(stack);
-    printf("Number of elements: %d", StackCountElements(stack));
-    printf("Total size (in bytes): %d", StackSizeOf(stack));
+    printf("\nNumber of elements: %d\n", StackCountElements(stack));
+    printf("Total size (in bytes): %d\n", StackSizeOf(stack));
   
 }
