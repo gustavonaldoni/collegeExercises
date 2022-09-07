@@ -1,10 +1,15 @@
 # depslib dependency file v1.0
-1662559826 source:c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\main.cpp
+1662563750 source:c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\main.cpp
 	<GL/Glut.h>
 	<stdlib.h>
 	<stdio.h>
 	<stdbool.h>
 	<time.h>
+	"utils.h"
+	"board.h"
+	"win.h"
+	"tie.h"
+	"play.h"
 
 1426360528 c:\puc_modelagem\freeglut\freeglut\include\gl\glut.h
 	"freeglut_std.h"
@@ -19,4 +24,15 @@
 	<GL/gl.h>
 	<GL/glu.h>
 	<stdlib.h>
+
+1662563818 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\utils.h
+	<math.h>
+
+1662563410 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\board.h
+
+1662559649 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\win.h
+
+1662559631 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\tie.h
+
+1662560874 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\play.h
 
