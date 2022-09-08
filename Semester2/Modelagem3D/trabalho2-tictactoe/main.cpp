@@ -53,7 +53,7 @@ void Draw(void)
         playerLine = GetPlayerLineCoordinate(board, x);
         playerColumn = GetPlayerColumnCoordinate(board, y);
 
-        if (PlayIsValid(board, playerLine, playerColumn))
+        if (PlayIsValid(board, playerLine, playerColumn) && totalPlays != -1)
         {
             totalPlays += 1;
 
@@ -107,6 +107,11 @@ void Draw(void)
     }
 
     glFlush();
+
+    if (totalPlays == -1)
+    {
+        totalPlays = 0;
+    }
 }
 
 void ListeningKey(unsigned char key, GLint x, GLint y)
@@ -117,7 +122,7 @@ void ListeningKey(unsigned char key, GLint x, GLint y)
     {
         if (key == KEY_SPACE)
         {
-            totalPlays = 0;
+            totalPlays = -1;
             turn = (rand() % 2) + 1;
             ResetBoard(&board);
         }
