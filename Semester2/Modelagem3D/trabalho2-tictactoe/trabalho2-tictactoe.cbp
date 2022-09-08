@@ -42,7 +42,14 @@
 			<Add library="gdi32" />
 			<Add directory="C:/puc_modelagem/freeglut/freeglut/lib" />
 		</Linker>
+		<Unit filename="board.h" />
+		<Unit filename="devName.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="play.h" />
+		<Unit filename="tie.h" />
+		<Unit filename="turn.h" />
+		<Unit filename="utils.h" />
+		<Unit filename="win.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -1,4 +1,5 @@
 bool CheckWin(Board, int);
+void DrawWinMessage(int, int);
 
 bool CheckWin(Board board, int playerNumber)
 {
@@ -45,4 +46,17 @@ bool CheckWin(Board board, int playerNumber)
         return true;
 
     return false;
+}
+
+void DrawWinMessage(int playerNumber)
+{
+    glColor3f(0,0,0);
+    glTranslatef(-3000, 3200,0);
+    //glScalef(1.5, 1, 0);
+
+    if (playerNumber == 1)
+        TextToStroke(GLUT_STROKE_MONO_ROMAN,"Player X WINS! Press SPACE to play again ...");
+
+    else if (playerNumber == 2)
+        TextToStroke(GLUT_STROKE_MONO_ROMAN,"Player O WINS! Press SPACE to play again ...");
 }

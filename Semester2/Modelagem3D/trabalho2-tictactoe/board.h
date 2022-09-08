@@ -9,6 +9,7 @@ void ResetBoard(Board *);
 void DrawBoard(Board);
 int GetPlayerLineCoordinate(Board, int);
 int GetPlayerColumnCoordinate(Board, int);
+bool PlayerHasClickedOnBoard(Board);
 
 void ResetBoard(Board *board)
 {
@@ -82,4 +83,10 @@ int GetPlayerLineCoordinate(Board board, int mousex)
 int GetPlayerColumnCoordinate(Board board, int mousey)
 {
     return (mousey - board.y) / (board.size / 3);
+}
+
+bool PlayerHasClickedOnBoard(Board board, int mousex, int mousey)
+{
+    return CheckCollisionPointRec(mousex, mousey,
+                                  board.x, board.y, board.size, board.size);
 }

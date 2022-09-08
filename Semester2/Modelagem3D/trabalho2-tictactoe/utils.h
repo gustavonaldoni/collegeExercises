@@ -6,6 +6,9 @@ float mapValue(float, float, float, float, float);
 void DrawRectangle(int, int, int, int);
 void DrawLine(int, int, int, int, int);
 void DrawCross(int, int, int);
+bool CheckCollisionPointRec(int, int, int, int, int, int);
+void TextToStroke(void *, char *);
+void DrawTextOnScreen(char *, int, int, void *);
 
 float mapValue(float n, float start1, float stop1, float start2, float stop2)
 {
@@ -51,10 +54,23 @@ void DrawCircle(int xCenter, int yCenter, int radius, int color)
         y = yCenter + (sin(ang) * radius);
 
         glColor3f(mapValue((float)color, 0.0, 255.0, 0.0, 1.0),
-              mapValue((float)color, 0.0, 255.0, 0.0, 1.0),
-              mapValue((float)color, 0.0, 255.0, 0.0, 1.0));
+                  mapValue((float)color, 0.0, 255.0, 0.0, 1.0),
+                  mapValue((float)color, 0.0, 255.0, 0.0, 1.0));
 
         glVertex2f(x, y);
     }
     glEnd();
 }
+
+bool CheckCollisionPointRec(int xP, int yP, int xR, int yR, int width, int height)
+{
+    return (xP >= xR && xP <=  xR + width &&
+            yP >= yR && yP <= yR + height);
+}
+
+void TextToStroke(void *font, char *string)
+{
+    while(*string)
+        glutStrokeCharacter(GLUT_STROKE_ROMAN,*string++);
+}
+
