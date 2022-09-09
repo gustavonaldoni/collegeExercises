@@ -15,4 +15,4 @@ Basics:
 
 Complementary:
 - StackCountElements(); OK
-- StackSizeOf();
+- StackSizeOf(); OK
