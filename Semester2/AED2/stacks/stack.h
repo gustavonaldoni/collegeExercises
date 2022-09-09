@@ -13,6 +13,8 @@ void StackCreate(Stack *);
 bool StackIsEmpty(Stack);
 bool StackPush(Stack *, int);
 void StackShow(Stack);
+int StackPop(Stack *);
+int StackTop(Stack);
 
 int StackCountElements(Stack);
 int StackSizeOf(Stack);
