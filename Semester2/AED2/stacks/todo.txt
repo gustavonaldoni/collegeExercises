@@ -9,9 +9,9 @@ Basics:
 - StackCreate(); OK
 - StackIsEmpty(); OK
 - StackPush(); OK
-- StackTop();
-- StackPop();
-- StackShow();
+- StackTop(); OK
+- StackPop(); OK
+- StackShow(); OK
 
 Complementary:
 - StackCountElements(); OK

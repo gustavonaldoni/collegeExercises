@@ -20,15 +20,22 @@ main()
             StackPush(&stack, userNumber);
         }
 
-        else
+        else if (userNumber == 666)
+        {
+            StackPop(&stack);
+        }
+
+        else if (userNumber >= 10 && userNumber != 666)
         {
             break;
         }
             
     } 
 
+    printf("\n");
     StackShow(stack);
     printf("\nNumber of elements: %d\n", StackCountElements(stack));
     printf("Total size (in bytes): %d\n", StackSizeOf(stack));
+    printf("Top element: %d\n", StackTop(stack));
   
 }
