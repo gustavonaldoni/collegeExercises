@@ -93,7 +93,36 @@ int StackSizeOf(Stack stack)
     int numberOfElements;
     struct Node aux;
 
-    numberOfElements = StackCountElements(stack);
+    if (StackIsEmpty(stack))
+        return 0;
 
+    numberOfElements = StackCountElements(stack);
     return sizeof(stack) + sizeof(aux) * numberOfElements;
+}
+
+int StackPop(Stack *stack)
+{
+    struct Node *aux;
+
+    if (stack->top == NULL)
+        return -1;
+
+    aux = stack->top;
+    stack->top = aux->next; 
+
+    aux->data = 0;
+    aux->next = NULL;
+
+    free(aux);
+
+    return aux->data;
+
+}
+
+int StackTop(Stack stack)
+{
+    if (StackIsEmpty(stack))
+        return -1;
+
+    return stack.top->data;
 }
