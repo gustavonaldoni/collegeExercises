@@ -1,0 +1,19 @@
+STRUCTS:
+
+- Node OK
+- Queue OK
+
+FUNCTIONS:
+
+Basics:
+- QueueCreate(); OK
+- QueueIsEmpty(); OK
+- QueueInsert(); 
+- QueueInit(); 
+- QueueEnd(); 
+- QueueRemove(); 
+- QueueShow(); 
+
+Complementary:
+- QueueCountElements(); 
+- QueueSizeOf(); 
