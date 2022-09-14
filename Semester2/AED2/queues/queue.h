@@ -14,6 +14,9 @@ void QueueCreate(Queue *);
 bool QueueIsEmpty(Queue);
 bool QueueInsert(Queue *, int);
 
+int QueueInit(Queue);
+int QueueEnd(Queue);
+
 void QueueCreate(Queue *queue)
 {
     queue->init = NULL;
@@ -24,6 +27,22 @@ bool QueueIsEmpty(Queue queue)
 {
     return queue.init == NULL &&
            queue.end == NULL;
+}
+
+int QueueInit(Queue queue)
+{
+    if (QueueIsEmpty(queue))
+        return -1;
+
+    return queue.init->data;
+}
+
+int QueueEnd(Queue queue)
+{
+    if (QueueIsEmpty(queue))
+        return -1;
+
+    return queue.end->data;
 }
 
 bool QueueInsert(Queue *queue, int data)

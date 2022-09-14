@@ -8,9 +8,9 @@ FUNCTIONS:
 Basics:
 - QueueCreate(); OK
 - QueueIsEmpty(); OK
-- QueueInsert(); 
-- QueueInit(); 
-- QueueEnd(); 
+- QueueInsert(); OK
+- QueueInit(); OK
+- QueueEnd(); OK
 - QueueRemove(); 
 - QueueShow(); 
 
