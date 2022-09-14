@@ -11,8 +11,8 @@ Basics:
 - QueueInsert(); OK
 - QueueInit(); OK
 - QueueEnd(); OK
-- QueueRemove(); 
-- QueueShow(); 
+- QueueRemove(); OK
+- QueueShow(); OK
 
 Complementary:
 - QueueCountElements(); 

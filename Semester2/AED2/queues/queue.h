@@ -12,10 +12,31 @@ typedef struct queue
 
 void QueueCreate(Queue *);
 bool QueueIsEmpty(Queue);
-bool QueueInsert(Queue *, int);
 
 int QueueInit(Queue);
 int QueueEnd(Queue);
+
+bool QueueInsert(Queue *, int);
+int QueueRemove(Queue *);
+
+void QueueShow(Queue queue)
+{
+    struct Node *aux;
+
+    if (QueueIsEmpty(queue))
+        printf("Queue is empty ...\n");
+
+    else
+    {
+        aux = queue.init;
+
+        while (aux != NULL)
+        {
+            printf("%d ", aux->data);
+            aux = aux->next;
+        }
+    }
+}
 
 void QueueCreate(Queue *queue)
 {
@@ -49,7 +70,7 @@ bool QueueInsert(Queue *queue, int data)
 {
     struct Node *aux;
 
-    aux = (struct Node *) malloc(sizeof(struct Node));
+    aux = (struct Node *)malloc(sizeof(struct Node));
 
     if (aux == NULL)
     {
@@ -71,4 +92,22 @@ bool QueueInsert(Queue *queue, int data)
     queue->end = aux;
 
     return true;
+}
+
+int QueueRemove(Queue *queue)
+{
+    struct Node *aux;
+
+    if (QueueIsEmpty(*queue))
+        return -1;
+
+    aux = queue->init;
+    queue->init = queue->init->next;
+
+    free(aux);
+
+    if (QueueIsEmpty(*queue))
+        queue->end = NULL;
+
+    return aux->data;
 }
