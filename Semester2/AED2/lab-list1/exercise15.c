@@ -1,3 +1,16 @@
+/*
+
+Written by: Gustavo Azevedo Naldoni e André Luís Zappa
+09/21/2022
+
+QUESTION:
+
+Implemente, em linguagem C, uma função em um programa de computador para ler n valores do
+tipo float e os apresente em ordem crescente. Utilize alocação dinâmica de memória para realizar
+a tarefa.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
