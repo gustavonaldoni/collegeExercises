@@ -25,4 +25,6 @@ int main()
     i = *&*&j; // Legal
     q = *p; // Legal
     i = (*p)++ + *q; // Ilegal 
+
+    return 0;
 }
