@@ -23,4 +23,6 @@ int main()
     *p - *q; // O valor desta expressão é -2
     **&p; // O valor desta expressão é i (3)
     *p / (*q) + 7; // O valor desta expressão é 7
+
+    return 0;
 }

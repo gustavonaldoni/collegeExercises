@@ -29,6 +29,5 @@ int main()
     else if (&x < &y)
         printf("Maior endereco: %p", &y);
 
-
     return 0;
 }

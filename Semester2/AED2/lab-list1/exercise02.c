@@ -12,7 +12,7 @@ Compare seus endereços e exiba o maior endereço.
 
 #include <stdio.h>
 
-main()
+int main()
 {
     int x, y;
 
@@ -23,4 +23,6 @@ main()
 
     else if (&x < &y)
         printf("%p", &y);
+
+    return 0;
 }

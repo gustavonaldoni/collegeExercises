@@ -35,4 +35,6 @@ main()
     *ps = 'S';
 
     printf("%d, %f, %c\n", x, y, s);
+
+    return 0;
 }

@@ -45,6 +45,8 @@ int main()
     {
         printf("\nVetor ordenado: %5.2f ", aux[i]);
     }
+
+    return 0;
 }
 
 void ordenar(float vet[], int tam)
