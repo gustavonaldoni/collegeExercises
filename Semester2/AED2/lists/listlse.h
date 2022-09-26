@@ -20,6 +20,9 @@ int ListLSEEnd(ListLSE);
 
 void ListLSEShow(ListLSE);
 
+int ListLSECountElements(ListLSE);
+int ListLSESizeOf(ListLSE);
+
 void ListLSECreate(ListLSE *list)
 {
     list->init = NULL;
@@ -89,4 +92,30 @@ void ListLSEShow(ListLSE list)
         printf("%d ", aux->data);
         aux = aux->next;
     }
+}
+
+int ListLSECountElements(ListLSE list)
+{
+    int counter = 0;
+    struct Node* aux;
+
+    if (ListLSEIsEmpty(list))
+        return 0;
+    
+    aux = list.init;
+
+    while (aux != NULL)
+    {
+        counter += 1;
+        aux = aux->next;
+    }
+
+    return counter;
+}
+
+int ListLSESizeOf(ListLSE list)
+{
+    int numberOfElements = ListLSECountElements(list);
+
+    return sizeof(list) + numberOfElements * sizeof(struct Node);
 }

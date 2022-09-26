@@ -23,4 +23,6 @@ main()
 
     printf("========================\n");
     ListLSEShow(listLSE);
+    printf("\n Number of elements: %d", ListLSECountElements(listLSE));
+    printf("\n Size (in bytes): %d", ListLSESizeOf(listLSE));
 }
