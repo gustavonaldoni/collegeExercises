@@ -1,0 +1,19 @@
+STRUCTS:
+
+- Node OK
+- ListLSE OK
+
+FUNCTIONS:
+
+Basics:
+- ListLSECreate(); OK
+- ListLSEIsEmpty(); OK
+- ListLSEInsertEnd(); OK
+- ListLSEInit(); OK
+- ListLSEEnd(); OK
+- ListLSERemove(); OK
+- ListLSEShow(); OK
+
+Complementary:
+- ListLSECountElements(); OK
+- ListLSESizeOf(); OK
