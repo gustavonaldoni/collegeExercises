@@ -20,10 +20,16 @@ QUESTION:
 main()
 {
     char userText[256];
-
+    
+    Stack words;
+    StackCreate(&words);
+    
     printf("Escreva uma frase: ");
     gets(userText);
     
     printf("Frase digitada: %s\n", userText);
-    printf("Numero de espacos em branco: %d\n", CountWhiteSpaces(userText));
+    CountWhiteSpaces(userText, &words);
+
+    StackShow(words);
+    printf("Numero elementos stack: %d", StackCountElements(words));
 }

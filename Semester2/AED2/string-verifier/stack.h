@@ -1,6 +1,6 @@
 struct Node
 {
-    char *text;
+    char text[15];
     struct Node *next;
 };
 
@@ -102,6 +102,7 @@ int StackSizeOf(Stack stack)
     return sizeof(stack) + sizeof(aux) * numberOfElements;
 }
 
+/*
 char StackPop(Stack *stack)
 {
     struct Node *aux;
@@ -120,6 +121,7 @@ char StackPop(Stack *stack)
     return aux->text;
 
 }
+*/
 
 char StackTop(Stack stack)
 {
