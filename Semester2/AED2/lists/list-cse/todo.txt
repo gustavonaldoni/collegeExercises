@@ -1,0 +1,19 @@
+STRUCTS:
+
+- Node OK
+- ListCSE OK
+
+FUNCTIONS:
+
+Basics:
+- ListCSECreate(); OK
+- ListCSEIsEmpty(); OK
+- ListCSEInsertEnd(); OK
+- ListCSEInit(); OK
+- ListCSEEnd(); OK
+- ListCSERemove(); 
+- ListCSEShow(); OK
+
+Complementary:
+- ListCSECountElements(); OK
+- ListCSESizeOf(); OK
