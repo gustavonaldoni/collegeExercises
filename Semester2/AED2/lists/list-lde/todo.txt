@@ -1,0 +1,19 @@
+STRUCTS:
+
+- Node OK
+- ListLDE OK
+
+FUNCTIONS:
+
+Basics:
+- ListLDECreate(); OK
+- ListLDEIsEmpty(); OK
+- ListLDEInsertEnd(); OK
+- ListLDEInit(); OK
+- ListLDEEnd(); OK
+- ListLDERemove(); 
+- ListLDEShow(); OK
+
+Complementary:
+- ListLDECountElements(); OK
+- ListLDESizeOf(); OK
