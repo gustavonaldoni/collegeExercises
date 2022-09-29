@@ -1,0 +1,19 @@
+STRUCTS:
+
+- Node OK
+- ListCDE OK
+
+FUNCTIONS:
+
+Basics:
+- ListCDECreate(); OK
+- ListCDEIsEmpty(); OK
+- ListCDEInsertEnd(); OK
+- ListCDEInit(); OK
+- ListCDEEnd(); OK
+- ListCDERemove(); OK
+- ListCDEShow(); OK
+
+Complementary:
+- ListCDECountElements(); OK
+- ListCDESizeOf(); OK
