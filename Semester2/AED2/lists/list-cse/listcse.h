@@ -23,7 +23,7 @@ void ListCSEShow(ListCSE);
 int ListCSECountElements(ListCSE);
 int ListCSESizeOf(ListCSE);
 
-int ListCSERemove(ListCSE *list, int);
+bool ListCSERemove(ListCSE *list, int);
 
 void ListCSECreate(ListCSE *list)
 {
@@ -111,7 +111,7 @@ int ListCSECountElements(ListCSE list)
         counter += 1;
         aux = aux->next;
     } while (aux != list.init);
-    
+
     return counter;
 }
 
@@ -122,10 +122,10 @@ int ListCSESizeOf(ListCSE list)
     return sizeof(list) + numberOfElements * sizeof(struct Node);
 }
 
-int ListCSERemove(ListCSE *list, int data)
+bool ListCSERemove(ListCSE *list, int data)
 {
     struct Node *aux, *before, *current;
-    int i, temp;
+    int i;
 
     if (ListCSEIsEmpty(*list))
         return -1;
@@ -134,7 +134,6 @@ int ListCSERemove(ListCSE *list, int data)
     if (list->init == list->end && list->init != NULL && list->init->data == data)
     {
         aux = list->init;
-        temp = aux->data;
 
         aux->data = 0;
 
@@ -143,21 +142,20 @@ int ListCSERemove(ListCSE *list, int data)
 
         free(aux);
 
-        return temp;
+        return true;
     }
 
     // Remove first element of a non unitary list
     if (list->init != list->end && list->init->data == data)
     {
         aux = list->init;
-        temp = aux->data;
 
         list->init = list->init->next;
         list->end->next = list->init;
 
         free(aux);
 
-        return temp;
+        return true;
     }
 
     // Remove from any other position at of the list
@@ -172,32 +170,30 @@ int ListCSERemove(ListCSE *list, int data)
 
     if (current == list->init)
     {
-        return -1;
+        return false;
     }
 
     // Got to the last element at the list
     else if (current->next == list->init)
     {
         aux = current;
-        temp = aux->data;
 
         before->next = list->init;
         list->end = before;
 
         free(aux);
-        
-        return temp;
+
+        return true;
     }
 
     else
     {
         aux = current;
-        temp = aux->data;
 
         before->next = current->next;
 
         free(aux);
 
-        return temp;
-    } 
+        return true;
+    }
 }
