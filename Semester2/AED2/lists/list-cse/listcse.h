@@ -170,13 +170,13 @@ int ListCSERemove(ListCSE *list, int data)
         current = current->next;
     }
 
-    if (current == NULL)
+    if (current == list->init)
     {
         return -1;
     }
 
     // Got to the last element at the list
-    else if (current->next == NULL)
+    else if (current->next == list->init)
     {
         aux = current;
         temp = aux->data;

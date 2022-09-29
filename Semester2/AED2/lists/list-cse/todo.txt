@@ -11,7 +11,7 @@ Basics:
 - ListCSEInsertEnd(); OK
 - ListCSEInit(); OK
 - ListCSEEnd(); OK
-- ListCSERemove(); 
+- ListCSERemove(); OK
 - ListCSEShow(); OK
 
 Complementary:
