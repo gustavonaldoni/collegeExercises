@@ -1,6 +1,6 @@
 struct Node
 {
-    char text[15];
+    char text[256];
     struct Node *next;
 };
 
@@ -13,8 +13,9 @@ void StackCreate(Stack *);
 bool StackIsEmpty(Stack);
 bool StackPush(Stack *, char*);
 void StackShow(Stack);
-char StackPop(Stack *);
-char StackTop(Stack);
+void StackPop(Stack *);
+char* StackTop(Stack);
+void StackRemove(Stack *);
 
 int StackCountElements(Stack);
 int StackSizeOf(Stack);
@@ -50,16 +51,11 @@ void StackShow(Stack stack)
     struct Node *aux;
     aux = stack.top;
 
-    if (StackIsEmpty(stack))
-    {
-        printf("Stack is empty ...\n");
-    }
-
-    else
+    if(!StackIsEmpty(stack))
     {
         while (aux != NULL)
         {
-            printf("Data: %s\n", aux->text);
+            printf("Palavra: %s\n", aux->text);
             aux = aux->next;
         }
     }
@@ -102,31 +98,26 @@ int StackSizeOf(Stack stack)
     return sizeof(stack) + sizeof(aux) * numberOfElements;
 }
 
-/*
-char StackPop(Stack *stack)
+void StackPop(Stack *stack)
 {
     struct Node *aux;
 
-    if (stack->top == NULL)
-        return -1;
-
+    while(stack->top != NULL)
+    {
     aux = stack->top;
     stack->top = aux->next; 
 
-    aux->text = "";
+    strcpy(aux->text, " ");
     aux->next = NULL;
 
     free(aux);
-
-    return aux->text;
-
+    }
 }
-*/
 
-char StackTop(Stack stack)
+char* StackTop(Stack stack)
 {
     if (StackIsEmpty(stack))
-        return -1;
+        return NULL;
 
     return stack.top->text;
 }

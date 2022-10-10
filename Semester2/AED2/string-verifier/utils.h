@@ -1,47 +1,42 @@
-void CountWhiteSpaces(char *, Stack *);
-void CutString(char *, char *, int, int);
+int SplitWordsAndPushIntoStack(char *, Stack *);
 
-void CountWhiteSpaces(char *string, Stack *stack)
+int SplitWordsAndPushIntoStack(char *string, Stack *stack)
 {
-    int i, k;
-    char result[100];
+    int i, k = 0, j, initWord = -1;
+    char cop[256]; 
 
-    char cop[strlen(string)];
-
-    for (i = 0; i < strlen(string) + 1; i++)
+    for(i=0; i < strlen(string); i++)
     {
-        if (string[i] != ' ')
-        {
-            k++;
-        }
+        if(string[i] == '.' || string[i] == ',' || string[i] == ':' || string[i] == ';' || string[i] == '?' || string[i] == '!')
+        string[i] = ' ';
+    }
 
-        else if (string[i] == ' ')
-        {
-            CutString(string, result, i - k, i);
-            StackPush(stack, result);
+    for (i = 0; i < strlen(string); i++)
+    {
+        if (string[i] == ' ')
+        {    
+            while(string[i+1] == ' ')
+            {
+                i++;
+            }     
 
+            strcpy(cop, "");
+            for (j = initWord + 1; j < i; j++) 
+            {
+                cop[k] = string[j]; 
+                k++;
+            }
+            cop[k] = '\0'; 
             k = 0;
-        }
+            initWord = i;
+
+            StackPush(stack, cop);
+        }    
     }
-}
 
-void CutString(char *string, char *result, int init, int end)
-{
-    int i, j;
-    int resSize = end - init + 1;
-
-    j = 0;
-    for (i = 0; i < strlen(string) + 1; i++)
+    if(initWord == -1)
     {
-        if (i >= init && i <= end)
-        {
-            result[j] = string[i];
-            j++;
-        }
-
-        if (i == end + 1)
-        {
-            result[j] = '\0';
-        }
+        StackPush(stack, string);
     }
+
 }
