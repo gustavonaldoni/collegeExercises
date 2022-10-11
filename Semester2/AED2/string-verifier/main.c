@@ -8,7 +8,6 @@ QUESTION:
 <a escrever>
 
 */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -16,7 +15,7 @@ QUESTION:
 #include <locale.h>
 #include <ctype.h>
 
-#include "stack.h"
+#include "list-lde.h"
 #include "utils.h"
 
 int main()
@@ -25,8 +24,8 @@ int main()
     char repetir = 'n';
     int flag = 1;
 
-    Stack words;
-    StackCreate(&words);
+    ListLDE words;
+    ListLDECreate(&words);
     setlocale(LC_ALL,"portuguese");
 
     do
@@ -43,8 +42,8 @@ int main()
         else if(strlen(userText) > 1)
         {
             //printf("Frase digitada: %s\n", userText);
-            SplitWordsAndPushIntoStack(userText, &words);
-            StackShow(words);
+            SplitWordsAndPushIntoList(userText, &words);
+            ListLDEShow(words);
         }
 
         else
@@ -54,7 +53,7 @@ int main()
 
         do
         {
-            printf("\n Deseja escrever outra frase? (s - Sim) (n - Nao) \n");
+            printf("\nDeseja escrever outra frase? (s - Sim) (n - Nao) \n");
             repetir = tolower(getchar());
             getchar();
 
@@ -69,8 +68,7 @@ int main()
         }
         while(flag != 1);
 
-        StackPop(&words);
-
+        ListLDERemoveAll(&words);
     }
     while (repetir != 'n');
 
