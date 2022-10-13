@@ -21,9 +21,8 @@ QUESTION:
 int main()
 {
     char userText[256], userTextCopy[256];
+    char repeat;
     char lastCharacter;
-    char repetir = 'n';
-    int flag = 1;
 
     ListLDE words;
     ListLDECreate(&words);
@@ -33,7 +32,7 @@ int main()
 
     setlocale(LC_ALL, "portuguese");
 
-    do
+    while (true)
     {
         printf("\n\nEscreva uma frase: ");
         fgets(userText, 256, stdin);
@@ -49,33 +48,40 @@ int main()
             lastCharacter != ';')
         {
             printf("Frase inválida. Coloque um ponto em seu final.\n");
+            continue;
         }
 
-        SplitWordsAndPushIntoList(userText, &words, &wordsTo);
-        printf("============================\n");
-        printf("Frase original: %s", userTextCopy);
-        FormatResultString(userTextCopy, words, wordsTo);
-        printf("Frase corrigida: %s", userTextCopy);
+        else
+        {
+            SplitWordsAndPushIntoList(userText, &words, &wordsTo);
+            printf("============================\n");
+            printf("Frase original: %s", userTextCopy);
+            FormatResultString(userTextCopy, words, wordsTo);
+            printf("Frase corrigida: %s", userTextCopy);
+        }
 
-        do
+        while (true)
         {
             printf("\nDeseja escrever outra frase? (s - Sim) (n - Nao) \n");
-            repetir = tolower(getchar());
+            repeat = tolower(getchar());
             getchar();
 
             system("cls");
 
-            if (repetir == 'n' || repetir == 's')
-                flag = 1;
-            else
+            ListLDERemoveAll(&words);
+            ListLDERemoveAll(&wordsTo);
+
+            if (repeat == 'n')
             {
-                flag = 0;
-                printf("\nEscolha invalida...\n");
+                exit(1);
             }
 
-        } while (flag != 1);
-        ListLDERemoveAll(&words);
-    } while (repetir != 'n');
+            else if (repeat == 's')
+            {
+                break;
+            }
 
-    return 0;
+            printf("\nEscolha invalida...\n");
+        }
+    }
 }
