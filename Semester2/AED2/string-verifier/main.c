@@ -20,36 +20,53 @@ QUESTION:
 
 int main()
 {
-    char userText[256];
+    char userText[256], userTextCopy[256];
+    char lastCharacter;
     char repetir = 'n';
     int flag = 1;
 
     ListLDE words;
     ListLDECreate(&words);
-    setlocale(LC_ALL,"portuguese");
+    setlocale(LC_ALL, "portuguese");
 
     do
     {
-
         printf("\n\nEscreva uma frase: ");
         fgets(userText, 256, stdin);
+        strcpy(userTextCopy, userText);
 
-        if(userText[strlen(userText)-2] != '.')
+        system("cls");
+
+        lastCharacter = userText[strlen(userText)-2];
+
+        if (lastCharacter != '.' &&
+            lastCharacter != '?' &&
+            lastCharacter != '!' &&
+            lastCharacter != ';')
         {
-            printf("\n FIM DA FRASE PRECISA DE UM PONTO FINALl!!!\n");
+            printf("Frase inválida. Coloque um ponto em seu final.\n");
         }
 
-        else if(strlen(userText) > 1)
+        /*
+        if (lastCharacter == '.' ||
+            lastCharacter == '?' ||
+            lastCharacter == '!' ||
+            lastCharacter == ';')
         {
-            //printf("Frase digitada: %s\n", userText);
-            SplitWordsAndPushIntoList(userText, &words);
-            ListLDEShow(words);
+            printf("Frase válida. Analisando-a ...\n");
         }
 
         else
         {
-            printf("DIGITE UMA FRASE VALIDA!!!\n");
+            printf("Frase inválida. Coloque um ponto em seu final.\n");
         }
+        */
+
+        SplitWordsAndPushIntoList(userText, &words);
+        printf("============================\n");
+        printf("Frase original: %s", userTextCopy);
+        printf("Frase corrigida: ");
+        ListLDEShow(words);
 
         do
         {
@@ -57,7 +74,9 @@ int main()
             repetir = tolower(getchar());
             getchar();
 
-            if(repetir == 'n' || repetir == 's')
+            system("cls");
+
+            if (repetir == 'n' || repetir == 's')
                 flag = 1;
             else
             {
@@ -65,13 +84,9 @@ int main()
                 printf("\nEscolha invalida...\n");
             }
 
-        }
-        while(flag != 1);
-
+        } while (flag != 1);
         ListLDERemoveAll(&words);
-    }
-    while (repetir != 'n');
+    } while (repetir != 'n');
 
     return 0;
-
 }

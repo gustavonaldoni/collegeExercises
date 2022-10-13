@@ -1,12 +1,63 @@
+void StringCut(char *, char *, int, int);
+void StringTrim(char *, char *);
 int SplitWordsAndPushIntoList(char *, ListLDE *);
 void checkBadWords(char *);
 void BlurWord(char *);
 void ToLower(char *);
+bool ValidateLastChar(char);
+
+void StringCut(char *string, char *result, int init, int end)
+{
+    int i, j;
+    int resSize = end - init + 1;
+
+    j = 0;
+    for (i = 0; i < strlen(string) + 1; i++)
+    {
+        if (i >= init && i <= end)
+        {
+            result[j] = string[i];
+            j++;
+        }
+
+        if (i == end + 1)
+        {
+            result[j] = '\0';
+        }
+    }
+}
+
+void StringTrim(char *string, char *result)
+{
+    int i;
+    int init, end;
+
+    init = 0;
+    end = strlen(string) - 1;
+
+    for (i = 0; i < strlen(string) + 1; i++)
+    {
+        if (string[i] == ' ')
+            init++;
+        else
+            break;
+    }
+
+    for (i = strlen(string) - 1; i >= 0; i--)
+    {
+        if (string[i] == ' ')
+            end--;
+        else
+            break;
+    }
+
+    StringCut(string, result, init, end);
+}
 
 int SplitWordsAndPushIntoList(char *string, ListLDE *list)
 {
     int i, k = 0, j, initWord = -1;
-    char cop[256];
+    char cop[256], t[256];
 
     for (i = 0; i < strlen(string); i++)
     {
@@ -33,9 +84,10 @@ int SplitWordsAndPushIntoList(char *string, ListLDE *list)
             k = 0;
             initWord = i;
 
-            ToLower(cop);
-            checkBadWords(cop);
-            ListLDEInsertEnd(list, cop);
+            StringTrim(cop, t);
+            ToLower(t);
+            checkBadWords(t);
+            ListLDEInsertEnd(list, t);
         }
     }
 
