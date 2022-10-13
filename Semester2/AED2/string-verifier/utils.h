@@ -1,12 +1,14 @@
 void StringCut(char *, char *, int, int);
 void StringTrim(char *, char *);
-void StringReplace(char*, char*, char*);
+void StringReplace(char *, char *, char *);
 
-int SplitWordsAndPushIntoList(char *, ListLDE *);
+int SplitWordsAndPushIntoList(char *, ListLDE *, ListLDE *);
 void checkBadWords(char *);
 void BlurWord(char *);
 void ToLower(char *);
 bool ValidateLastChar(char);
+
+void FormatResultString(char *, ListLDE, ListLDE);
 
 void StringCut(char *string, char *result, int init, int end)
 {
@@ -56,42 +58,52 @@ void StringTrim(char *string, char *result)
     StringCut(string, result, init, end);
 }
 
-void StringReplace(char* original, char* word, char* to)
+void StringReplace(char *original, char *word, char *to)
 {
     int i, j;
     int init, end;
     int counter;
-    
-    init = -1; end = -1;
+
+    init = -1;
+    end = -1;
     counter = 1;
-    
+
     for (i = 0; i < strlen(original) - 1; i++)
     {
-        if (original[i] == word[0] && 
-            original[i-1] == ' ' &&
-            original[i + strlen(word)] == ' ')
+        if (original[i] == word[0] &&
+            (original[i - 1] == ' ' ||
+             original[i - 1] == '.' ||
+             original[i - 1] == '!' ||
+             original[i - 1] == ';' ||
+             original[i - 1] == ',' ) &&
+            (original[i + strlen(word)] == ' ' ||
+             original[i + strlen(word)] == '.' ||
+             original[i + strlen(word)] == '!' ||
+             original[i + strlen(word)] == ';' ||
+             original[i + strlen(word)] == ','))
         {
             init = i;
-            
+
             for (j = 1; j < strlen(word); j++)
             {
                 if (original[i + j] == word[j])
                 {
                     counter++;
                 }
-                
+
                 else
                 {
                     counter = 1;
-                    init = -1; end = -1;
+                    init = -1;
+                    end = -1;
                     break;
                 }
             }
-            
+
             if (counter == strlen(word))
             {
                 end = init + strlen(word) - 1;
-                
+
                 for (i = init; i <= end; i++)
                 {
                     original[i] = to[i - init];
@@ -101,7 +113,7 @@ void StringReplace(char* original, char* word, char* to)
     }
 }
 
-int SplitWordsAndPushIntoList(char *string, ListLDE *list)
+int SplitWordsAndPushIntoList(char *string, ListLDE *words, ListLDE *wordsTo)
 {
     int i, k = 0, j, initWord = -1;
     char cop[256], t[256];
@@ -132,15 +144,17 @@ int SplitWordsAndPushIntoList(char *string, ListLDE *list)
             initWord = i;
 
             StringTrim(cop, t);
+            ListLDEInsertEnd(words, t);
+
             ToLower(t);
             checkBadWords(t);
-            ListLDEInsertEnd(list, t);
+            ListLDEInsertEnd(wordsTo, t);
         }
     }
 
     if (initWord == -1)
     {
-        ListLDEInsertEnd(list, string);
+        ListLDEInsertEnd(words, string);
     }
 }
 
@@ -242,4 +256,23 @@ void ToLower(char *word)
     {
         word[i] = tolower(word[i]);
     }
+}
+
+void FormatResultString(char *string, ListLDE words, ListLDE wordsTo)
+{
+    struct Node *aux1, *aux2;
+
+    if (ListLDEIsEmpty(words) && ListLDEIsEmpty(wordsTo))
+        return;
+
+    aux1 = words.init;
+    aux2 = wordsTo.init;
+
+    while (aux1 != NULL && aux2 != NULL)
+    {
+        StringReplace(string, aux1->text, aux2->text);
+        aux1 = aux1->next;
+        aux2 = aux2->next;
+    }
+    
 }

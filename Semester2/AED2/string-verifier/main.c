@@ -27,6 +27,10 @@ int main()
 
     ListLDE words;
     ListLDECreate(&words);
+
+    ListLDE wordsTo;
+    ListLDECreate(&wordsTo);
+
     setlocale(LC_ALL, "portuguese");
 
     do
@@ -37,7 +41,7 @@ int main()
 
         system("cls");
 
-        lastCharacter = userText[strlen(userText)-2];
+        lastCharacter = userText[strlen(userText) - 2];
 
         if (lastCharacter != '.' &&
             lastCharacter != '?' &&
@@ -47,26 +51,11 @@ int main()
             printf("Frase inválida. Coloque um ponto em seu final.\n");
         }
 
-        /*
-        if (lastCharacter == '.' ||
-            lastCharacter == '?' ||
-            lastCharacter == '!' ||
-            lastCharacter == ';')
-        {
-            printf("Frase válida. Analisando-a ...\n");
-        }
-
-        else
-        {
-            printf("Frase inválida. Coloque um ponto em seu final.\n");
-        }
-        */
-
-        SplitWordsAndPushIntoList(userText, &words);
+        SplitWordsAndPushIntoList(userText, &words, &wordsTo);
         printf("============================\n");
         printf("Frase original: %s", userTextCopy);
-        printf("Frase corrigida: ");
-        ListLDEShow(words);
+        FormatResultString(userTextCopy, words, wordsTo);
+        printf("Frase corrigida: %s", userTextCopy);
 
         do
         {
