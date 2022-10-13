@@ -38,8 +38,6 @@ int main()
         fgets(userText, 256, stdin);
         strcpy(userTextCopy, userText);
 
-        system("cls");
-
         lastCharacter = userText[strlen(userText) - 2];
 
         if (lastCharacter != '.' &&
@@ -55,9 +53,9 @@ int main()
         {
             SplitWordsAndPushIntoList(userText, &words, &wordsTo);
             printf("============================\n");
-            printf("Frase original: %s", userTextCopy);
             FormatResultString(userTextCopy, words, wordsTo);
-            printf("Frase corrigida: %s", userTextCopy);
+            userTextCopy[0] = toupper(userTextCopy[0]);
+            printf("Frase formatada: %s", userTextCopy);
         }
 
         while (true)

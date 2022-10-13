@@ -71,16 +71,22 @@ void StringReplace(char *original, char *word, char *to)
     for (i = 0; i < strlen(original) - 1; i++)
     {
         if (original[i] == word[0] &&
-            (original[i - 1] == ' ' ||
-             original[i - 1] == '.' ||
-             original[i - 1] == '!' ||
-             original[i - 1] == ';' ||
-             original[i - 1] == ',' ) &&
-            (original[i + strlen(word)] == ' ' ||
-             original[i + strlen(word)] == '.' ||
-             original[i + strlen(word)] == '!' ||
-             original[i + strlen(word)] == ';' ||
-             original[i + strlen(word)] == ','))
+                     (original[i - 1] == ' ' ||
+                      original[i - 1] == '.' ||
+                      original[i - 1] == '!' ||
+                      original[i - 1] == ';' ||
+                      original[i - 1] == ',') &&
+                     (original[i + strlen(word)] == ' ' ||
+                      original[i + strlen(word)] == '.' ||
+                      original[i + strlen(word)] == '!' ||
+                      original[i + strlen(word)] == ';' ||
+                      original[i + strlen(word)] == ',') ||
+                 (i == 0 &&
+                  (original[i + strlen(word)] == ' ' ||
+                   original[i + strlen(word)] == '.' ||
+                   original[i + strlen(word)] == '!' ||
+                   original[i + strlen(word)] == ';' ||
+                   original[i + strlen(word)] == ',')))
         {
             init = i;
 
@@ -274,5 +280,4 @@ void FormatResultString(char *string, ListLDE words, ListLDE wordsTo)
         aux1 = aux1->next;
         aux2 = aux2->next;
     }
-    
 }
