@@ -1,5 +1,7 @@
 void StringCut(char *, char *, int, int);
 void StringTrim(char *, char *);
+void StringReplace(char*, char*, char*);
+
 int SplitWordsAndPushIntoList(char *, ListLDE *);
 void checkBadWords(char *);
 void BlurWord(char *);
@@ -52,6 +54,51 @@ void StringTrim(char *string, char *result)
     }
 
     StringCut(string, result, init, end);
+}
+
+void StringReplace(char* original, char* word, char* to)
+{
+    int i, j;
+    int init, end;
+    int counter;
+    
+    init = -1; end = -1;
+    counter = 1;
+    
+    for (i = 0; i < strlen(original) - 1; i++)
+    {
+        if (original[i] == word[0] && 
+            original[i-1] == ' ' &&
+            original[i + strlen(word)] == ' ')
+        {
+            init = i;
+            
+            for (j = 1; j < strlen(word); j++)
+            {
+                if (original[i + j] == word[j])
+                {
+                    counter++;
+                }
+                
+                else
+                {
+                    counter = 1;
+                    init = -1; end = -1;
+                    break;
+                }
+            }
+            
+            if (counter == strlen(word))
+            {
+                end = init + strlen(word) - 1;
+                
+                for (i = init; i <= end; i++)
+                {
+                    original[i] = to[i - init];
+                }
+            }
+        }
+    }
 }
 
 int SplitWordsAndPushIntoList(char *string, ListLDE *list)
@@ -183,7 +230,7 @@ void BlurWord(char *word)
 
     for (i = 0; i < strlen(word); i++)
     {
-        word[i] = 'X';
+        word[i] = '*';
     }
 }
 
