@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1663849983 source:c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\ex-quadrado\main.cpp
+	<windows.h>
+	<GL/freeglut.h>
+	<stdio.h>
+	"quadrado.h"
+
+1426360528 c:\puc_modelagem\freeglut\freeglut\include\gl\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1426360528 c:\puc_modelagem\freeglut\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426360528 c:\puc_modelagem\freeglut\freeglut\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1663849563 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\ex-quadrado\quadrado.h
+

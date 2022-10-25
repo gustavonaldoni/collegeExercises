@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1662594332 source:c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\main.cpp
+1662654369 source:c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\main.cpp
 	<GL/Glut.h>
 	<stdlib.h>
 	<stdio.h>
@@ -38,7 +38,7 @@
 
 1662560874 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\play.h
 
-1662592822 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\devname.h
+1662655267 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\devname.h
 
 1662592820 c:\users\gustavo\documents\estudos\ciência da computação\faculdade\collegeexercises\semester2\modelagem3d\trabalho2-tictactoe\turn.h
 
